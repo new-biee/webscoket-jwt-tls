@@ -44,7 +44,8 @@ spring:
           - git-version=${git.commit.id.describe:}
           - git-commit=${git.commit.id.abbrev:}
           - git-branch=${git.branch:}
-      host: localhost
+        enabled: true
+      host: 127.0.0.1
       port: 8500
   messages:
     cache-duration: PT1S # 1 second, see the ISO 8601 standard
@@ -80,6 +81,10 @@ jhipster:
       expiration: 3600 # By default objects stay 1 hour (in seconds) in the cache
       server: redis://localhost:6379
       cluster: false
+      connectionPoolSize: 64
+      connectionMinimumIdleSize: 24
+      subscriptionConnectionPoolSize: 50
+      subscriptionConnectionMinimumIdleSize: 1
       # server: redis://localhost:6379,redis://localhost:16379,redis://localhost:26379
       # cluster: true
   # CORS is disabled by default on microservices, as you should access them through a gateway.
@@ -114,5 +119,6 @@ jhipster:
 # More documentation is available at:
 # https://www.jhipster.tech/common-application-properties/
 # ===================================================================
-
-# application:
+redis: # Redis configuration
+  host: 127.0.0.1 # Server address
+  port: 6379

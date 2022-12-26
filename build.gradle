@@ -202,6 +202,14 @@ dependencies {
     implementation "io.micrometer:micrometer-registry-prometheus"
     implementation "io.dropwizard.metrics:metrics-core"
     //jhipster-needle-gradle-dependency - JHipster will add additional dependencies here
+
+    // websocket
+    implementation "org.springframework.boot:spring-boot-starter-websocket"
+
+    // redis
+    implementation 'org.springframework.boot:spring-boot-starter-data-redis'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    implementation "redis.clients:jedis:${redisClientVersion}"
 }
 
 if (project.hasProperty("gae")) {
