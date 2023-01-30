@@ -27,8 +27,8 @@ version = "0.0.1-SNAPSHOT"
 
 description = ""
 
-sourceCompatibility=11
-targetCompatibility=11
+sourceCompatibility = 11
+targetCompatibility = 11
 assert System.properties["java.specification.version"] == "11" || "12" || "13" || "14" || "15" || "16" || "17" || "18"
 
 apply from: "gradle/docker.gradle"
@@ -101,7 +101,6 @@ modernizer {
     failOnViolations = true
     includeTestClasses = true
 }
-
 
 
 check.dependsOn integrationTest
@@ -186,11 +185,11 @@ dependencies {
     implementation "org.springframework.boot:spring-boot-starter-undertow"
     implementation "io.jsonwebtoken:jjwt-api"
     if (!project.hasProperty("gae")) {
-    runtimeOnly "io.jsonwebtoken:jjwt-impl"
-    runtimeOnly "io.jsonwebtoken:jjwt-jackson"
+        runtimeOnly "io.jsonwebtoken:jjwt-impl"
+        runtimeOnly "io.jsonwebtoken:jjwt-jackson"
     } else {
-    implementation "io.jsonwebtoken:jjwt-impl"
-    implementation "io.jsonwebtoken:jjwt-jackson"
+        implementation "io.jsonwebtoken:jjwt-impl"
+        implementation "io.jsonwebtoken:jjwt-jackson"
     }
     implementation "org.springframework.cloud:spring-cloud-starter"
     implementation "org.springframework.cloud:spring-cloud-starter-circuitbreaker-resilience4j"
@@ -206,10 +205,9 @@ dependencies {
     // websocket
     implementation "org.springframework.boot:spring-boot-starter-websocket"
 
-    // redis
-    implementation 'org.springframework.boot:spring-boot-starter-data-redis'
-    testImplementation 'org.springframework.boot:spring-boot-starter-test'
-    implementation "redis.clients:jedis:${redisClientVersion}"
+    //kafka
+    implementation 'org.springframework.kafka:spring-kafka:2.9.4'
+    implementation 'org.apache.kafka:kafka-streams:2.8.0'
 }
 
 if (project.hasProperty("gae")) {

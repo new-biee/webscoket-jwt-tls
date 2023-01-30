@@ -15,11 +15,13 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.core.env.Environment;
+import org.springframework.kafka.annotation.EnableKafkaStreams;
 import tech.jhipster.config.DefaultProfileUtil;
 import tech.jhipster.config.JHipsterConstants;
 
 @SpringBootApplication
 @EnableConfigurationProperties({ ApplicationProperties.class })
+@EnableKafkaStreams
 public class WebsocketApp {
 
     private static final Logger log = LoggerFactory.getLogger(WebsocketApp.class);

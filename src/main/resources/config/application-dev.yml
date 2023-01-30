@@ -65,7 +65,14 @@ spring:
     locator:
       discovery:
         enabled: true
-
+  kafka:
+    bootstrap-servers: localhost:9092
+    streams:
+      replication-factor: 1
+      application-id: websocket-kafka
+    consumer:
+      group-id: websocketGroup
+      auto-offset-reset: earliest
 server:
   port: 8088
 
@@ -122,3 +129,8 @@ jhipster:
 redis: # Redis configuration
   host: 127.0.0.1 # Server address
   port: 6379
+kafka:
+  input:
+    topic: message-input
+  output:
+    topic: message-output
