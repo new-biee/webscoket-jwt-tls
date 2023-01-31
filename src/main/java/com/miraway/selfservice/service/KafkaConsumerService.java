@@ -15,7 +15,7 @@ public class KafkaConsumerService {
 
     SimpMessagingTemplate template;
 
-    @KafkaListener(topics = Constants.KAFKA_OUTPUT_TOPIC, groupId = Constants.GROUP_ID)
+    @KafkaListener(topics = Constants.KAFKA_INPUT_TOPIC, groupId = Constants.GROUP_ID)
     public void consume(Message message) {
         logger.info("Message recieved -> {}", message);
         template.convertAndSend("/topic/group", message);
