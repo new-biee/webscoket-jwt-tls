@@ -36,6 +36,6 @@ public class Message {
 
     @Override
     public String toString() {
-        return "Message {" + "data = '" + data + '\'' + ", message = '" + message + '\'' + '}';
+        return "{\"topic\":\"" + topic + "\",\"data\":\"" + data + "\",\"message\":\"" + message + "\"}";
     }
 }
