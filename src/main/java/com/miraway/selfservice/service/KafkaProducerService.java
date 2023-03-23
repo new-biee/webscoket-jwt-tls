@@ -26,7 +26,7 @@ public class KafkaProducerService {
         UUID uuid = UUID.randomUUID();
         kafkaTemplate.send(message.getTopic(), uuid.toString(), message.toString());
         logger.info(">>> Send message :{}", message);
-        simpMessagingTemplate.convertAndSend(message.getTopic(), message.getMessage());
+        simpMessagingTemplate.convertAndSend("/topic/destination", message.getMessage());
         logger.info(">>> Send message websocket :{}", message);
     }
 }

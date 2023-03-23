@@ -4,6 +4,8 @@ import com.miraway.selfservice.domain.Message;
 import com.miraway.selfservice.service.KafkaConsumerService;
 import com.miraway.selfservice.service.KafkaProducerService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.kafka.core.ConsumerFactory;
 import org.springframework.web.bind.annotation.*;
 
@@ -18,5 +20,10 @@ public class KafkaController {
     public void sendMessage(@RequestBody Message message) {
         //Sending the message to kafka topic queue
         producerService.sendMessage(message);
+    }
+
+    @GetMapping("/get")
+    public ResponseEntity<?> get() {
+        return new ResponseEntity<>("tls/baeldung", HttpStatus.OK);
     }
 }
